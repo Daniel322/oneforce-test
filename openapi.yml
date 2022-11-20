@@ -1,0 +1,15 @@
+openapi: 3.0.0
+components:
+  schemas: {}
+  securitySchemes: {}
+info:
+  title: users API
+  description: users API
+  version: '1'
+paths:
+  '//{users+}':
+    get:
+      operationId: app
+      summary: get users
+      description: get list or current user
+      responses: {}
