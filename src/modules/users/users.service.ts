@@ -25,10 +25,11 @@ export class UsersService implements OnModuleInit {
       this.logger.log('user service init!');
       const { count } = await this.db.query('type').eq('user').count().exec();
       if (!count) {
+        this.logger.log('starting to insert data!');
         for await (const item of userMockData) {
-          const res = await this.db.create(item);
-          console.log(res);
+          await this.db.create(item);
         }
+        this.logger.log('finishing to insert data!');
       }
     } catch (error) {
       this.logger.error(error);
